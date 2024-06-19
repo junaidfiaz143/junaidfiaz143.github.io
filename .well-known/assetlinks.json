@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.firstkotlin",
+    "sha256_cert_fingerprints":
+    ["B7:C2:E5:B3:12:0F:C2:12:1A:18:0C:D1:AD:01:F1:8F:D2:CC:2F:38:5A:CC:BE:6A:19:61:88:10:38:09:EF:81"]
+  }
+}]
