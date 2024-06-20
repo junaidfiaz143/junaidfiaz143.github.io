@@ -40,6 +40,8 @@
             var isAndroid = /Android/i.test(navigator.userAgent);
 
             if (isAndroid) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.google.android.youtube';
+
                 // Check if the app is installed
                 var appScheme = 'examplefirstkotlin://'; // Replace with your app's URL scheme
                 var appUrl = appScheme + '/'; // Replace with the specific path if needed
