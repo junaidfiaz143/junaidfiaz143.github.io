@@ -3,14 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open URL on Button Click</title>
+    <title>Redirect to App</title>
     <script>
         function openURL() {
             window.open('https://junaidfiaz143.github.io/myapp', '_blank');
         }
     </script>
+    <style>
+        #dialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #dialog button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="openURL()">Open Android App</button>
+    <div id="dialog">
+        <button onclick="openURL()">Open Android App</button>
+        <p>Would you like to open this link in the app?</p>
+        <button id="openApp">Open App</button>
+        <button id="cancel">Cancel</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the user agent is Android
+            var isAndroid = /Android/i.test(navigator.userAgent);
+
+            if (isAndroid) {
+                // Check if the app is installed
+                var appScheme = 'examplefirstkotlin://'; // Replace with your app's URL scheme
+                var appUrl = appScheme + '/'; // Replace with the specific path if needed
+
+                var iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = appUrl;
+
+                document.body.appendChild(iframe);
+
+                setTimeout(function () {
+                    document.body.removeChild(iframe);
+                    showDialog();
+                }, 1000);
+            }
+
+            function showDialog() {
+                var dialog = document.getElementById('dialog');
+                dialog.style.display = 'block';
+
+                document.getElementById('openApp').addEventListener('click', function () {
+                    window.location.href = appUrl;
+                });
+
+                document.getElementById('cancel').addEventListener('click', function () {
+                    dialog.style.display = 'none';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
+
