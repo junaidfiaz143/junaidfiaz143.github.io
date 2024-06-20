@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect to App</title>
     <script>
-        function openURL() {
-            window.open('https://junaidfiaz143.github.io/myapp', '_blank');
+        function openURL(url) {
+            window.open(url, '_blank');
         }
     </script>
     <style>
@@ -28,7 +28,8 @@
 </head>
 <body>
     <div id="dialog">
-        <button onclick="openURL()">Open Android App</button>
+        <button onclick="openURL('https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html')">Open RPay App</button>
+        <button onclick="openURL('https://junaidfiaz143.github.io/myapp')">Open First Kotlin App</button>
         <p>Would you like to open this link in the app?</p>
         <button id="openApp">Open App</button>
         <button id="cancel">Cancel</button>
@@ -40,9 +41,9 @@
             var isAndroid = /Android/i.test(navigator.userAgent);
 
             if (isAndroid) {
-                var appUrl = 'vnd.youtube://';
+                // var appUrl = 'vnd.youtube://';
 
-                window.location.href = 'https://play.google.com/store/apps/details?id=com.google.android.youtube';
+                // window.location.href = 'https://play.google.com/store/apps/details?id=com.google.android.youtube';
 
                 // Check if the app is installed
                 var appScheme = 'examplefirstkotlin://'; // Replace with your app's URL scheme
