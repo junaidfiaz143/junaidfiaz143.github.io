@@ -40,6 +40,8 @@
             var isAndroid = /Android/i.test(navigator.userAgent);
 
             if (isAndroid) {
+                var appUrl = 'vnd.youtube://';
+
                 window.location.href = 'https://play.google.com/store/apps/details?id=com.google.android.youtube';
 
                 // Check if the app is installed
