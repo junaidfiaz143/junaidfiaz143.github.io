@@ -39,7 +39,7 @@
 </head>
 <body>
     <div>
-        <button onclick="openURL('https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html')">Open RPay App</button>
+        <button id="Rpay-button" onclick="openURL('https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html')">Open RPay App</button>
         <button onclick="openURL('https://junaidfiaz143.github.io/myapp')">Open First Kotlin App</button>
     </div>
 
@@ -64,7 +64,11 @@
 
                 // openURL('https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html')
 
-                showDialog()
+                // showDialog()
+
+                window.onload = function(){
+                    document.getElementById('Rpay-button').click();
+                }
             }
 
             function showDialog() {
