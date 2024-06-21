@@ -79,14 +79,14 @@
                     var playStoreUrl = 'https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html'; // Replace with your app's Play Store URL
 
                     // Attempt to open the app
-                    window.location.href = appUrl;
+                    // window.location.href = appUrl;
 
                 openUrl(playStoreUrl)
 
                     // Fallback to Play Store if the app is not installed
-                    setTimeout(function () {
-                        window.location.href = playStoreUrl;
-                    }, 10000); // Adjust the timeout as needed
+                    // setTimeout(function () {
+                    //     window.location.href = playStoreUrl;
+                    // }, 10000); // Adjust the timeout as needed
                 // });
 
                 // document.getElementById('cancel').addEventListener('click', function () {
