@@ -20,20 +20,37 @@
             background: white;
             border: 1px solid #ccc;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
         #dialog button {
             margin-top: 10px;
         }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
-    <div id="dialog">
+    <div>
         <button onclick="openURL('https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html')">Open RPay App</button>
         <button onclick="openURL('https://junaidfiaz143.github.io/myapp')">Open First Kotlin App</button>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="dialog">
         <p>Would you like to open this link in the app?</p>
         <button id="openApp">Open App</button>
         <button id="cancel">Cancel</button>
     </div>
+    <h1>Welcome to My Website</h1>
+    <p>If you are on an Android device, you will be asked if you want to open the app.</p>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -45,34 +62,33 @@
 
                 // window.location.href = 'https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html';
 
-                openURL('https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html')
+                // openURL('https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html')
 
-                // Check if the app is installed
-                var appScheme = 'examplefirstkotlin://'; // Replace with your app's URL scheme
-                var appUrl = appScheme + '/'; // Replace with the specific path if needed
-
-                var iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = appUrl;
-
-                document.body.appendChild(iframe);
-
-                setTimeout(function () {
-                    document.body.removeChild(iframe);
-                    showDialog();
-                }, 1000);
+                showDialog()
             }
 
             function showDialog() {
                 var dialog = document.getElementById('dialog');
+                var overlay = document.getElementById('overlay');
                 dialog.style.display = 'block';
+                overlay.style.display = 'block';
 
                 document.getElementById('openApp').addEventListener('click', function () {
+                    var appUrl = 'firstdeep://'; // Replace with your app's URL scheme
+                    var playStoreUrl = 'https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html'; // Replace with your app's Play Store URL
+
+                    // Attempt to open the app
                     window.location.href = appUrl;
+
+                    // Fallback to Play Store if the app is not installed
+                    setTimeout(function () {
+                        window.location.href = playStoreUrl;
+                    }, 2000); // Adjust the timeout as needed
                 });
 
                 document.getElementById('cancel').addEventListener('click', function () {
                     dialog.style.display = 'none';
+                    overlay.style.display = 'none';
                 });
             }
         });
