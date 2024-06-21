@@ -73,7 +73,7 @@
                 dialog.style.display = 'block';
                 overlay.style.display = 'block';
 
-                // document.getElementById('openApp').addEventListener('click', function () {
+                document.getElementById('openApp').addEventListener('click', function () {
                     // var appUrl = 'rakutenpay://'; // Replace with your app's URL scheme
                     var appeUrl = 'rakutenpay://'; // Replace with your app's Play Store URL
                     var playStoreUrl = 'https://finance.jp.rakuten-static.com/rpay/app/link/cash-charge-input/index.html'; // Replace with your app's Play Store URL
@@ -85,7 +85,7 @@
                     setTimeout(function () {
                         window.location.href = playStoreUrl;
                     }, 2000); // Adjust the timeout as needed
-                // });
+                });
 
                 document.getElementById('cancel').addEventListener('click', function () {
                     dialog.style.display = 'none';
